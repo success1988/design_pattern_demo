@@ -11,6 +11,15 @@
 
     <artifactId>strategy</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.0.5</version>
+        </dependency>
+    </dependencies>
+
+
     <profiles>
         <profile>
             <id>dev</id>
@@ -31,5 +40,6 @@
             </activation>
         </profile>
     </profiles>
+
 
 </project>
