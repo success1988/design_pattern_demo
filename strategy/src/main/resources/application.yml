@@ -1,3 +1,6 @@
 spring:
   profiles:
     active: "@env@"
+success:
+  name: zhangsan
+  age: 18
