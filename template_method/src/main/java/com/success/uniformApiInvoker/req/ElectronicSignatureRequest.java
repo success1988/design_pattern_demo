@@ -8,4 +8,5 @@ package com.success.uniformApiInvoker.req;
  * @Version
  */
 public class ElectronicSignatureRequest extends OuterBaseRequest{
+
 }

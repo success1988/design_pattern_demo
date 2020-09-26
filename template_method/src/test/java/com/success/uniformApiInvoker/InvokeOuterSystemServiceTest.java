@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * @Title：
+ * @Title：调用外部服务的统一接口测试用例
  * @Author：wangchenggong
  * @Date 2020/9/26 6:28
  * @Description
