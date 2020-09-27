@@ -2,7 +2,7 @@ package com.success.uniformApiInvoker;
 
 import com.success.uniformApiInvoker.req.OuterBaseRequest;
 import com.success.uniformApiInvoker.res.OuterBaseResponse;
-import com.success.uniformApiInvoker.util.HttpClientUtil;
+import com.success.util.HttpClientUtil;
 
 /**
  * @Title：调用外部服务基类

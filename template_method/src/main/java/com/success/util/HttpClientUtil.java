@@ -1,4 +1,4 @@
-package com.success.uniformApiInvoker.util;
+package com.success.util;
 
 /**
  * @Title：HttpClient工具类
