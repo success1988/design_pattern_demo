@@ -5,7 +5,7 @@ import com.success.dataAccess.dao.BaseMapper;
 import java.util.List;
 
 /**
- * @Title：数据操作服务基类
+ * @Title：数据操作服务基类(继承了BaseService中的泛型类型)
  * @Author：wangchenggong
  * @Date 2020/9/26 22:42
  * @Description 增删改查的实现需要两步:1.获取对应的Mapper 2.调用Mapper对应的方法实现增删改查
