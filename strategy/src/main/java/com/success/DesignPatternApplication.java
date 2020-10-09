@@ -2,6 +2,7 @@ package com.success;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
  * @Title：启动类
@@ -10,10 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description
  * @Version
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.success"})
 public class DesignPatternApplication {
     public static void main(String[] args) {
         SpringApplication.run(DesignPatternApplication.class, args);
     }
-
 }

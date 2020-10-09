@@ -4,3 +4,7 @@ spring:
 success:
   name: zhangsan
   age: 18
+# 日志配置，用以保证SpringBoot就不会在获取配置中心的配置前加载日志配置
+# 建议 将日志配置文件的名称设置为logback-spring.xml,这样就可以省去下边这个配置了
+logging:
+  config: classpath:logback-config.xml

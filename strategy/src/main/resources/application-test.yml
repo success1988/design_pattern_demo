@@ -1,2 +1,5 @@
 spring:
   profiles: test
+global:
+  logback:
+    path: E:/logs/test
