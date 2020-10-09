@@ -22,6 +22,8 @@ import static javax.servlet.DispatcherType.*;
  *
  * 目前，只有Log4j和Logback支持MDC功能
  */
+//在SpringBootApplication上使用@ServletComponentScan注解后，Servlet、Filter、Listener可以直接通过@WebServlet、@WebFilter、@WebListener注解自动注册，无需其他代码
+//如果SpringBootApplication上使用了@ServletComponentScan注解，就可以去掉@Component了
 @Component
 @WebFilter(filterName = "traceFilter", urlPatterns = "/*", dispatcherTypes = {REQUEST,
     FORWARD,INCLUDE,ASYNC,ERROR})
