@@ -8,3 +8,7 @@ success:
 # 建议 将日志配置文件的名称设置为logback-spring.xml,这样就可以省去下边这个配置了
 logging:
   config: classpath:logback-config.xml
+# 自定义属性，用来指定日志文件的存放目录
+global:
+  logback:
+    path: E:/logs/@env@
