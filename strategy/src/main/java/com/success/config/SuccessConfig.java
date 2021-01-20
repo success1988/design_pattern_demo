@@ -3,6 +3,7 @@ package com.success.config;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,5 +21,10 @@ public class SuccessConfig {
 
     private String name;
     private int age;
+
+    @Bean
+    public MyService createMyService(){
+        return new MyService();
+    }
 
 }

@@ -1,6 +1,9 @@
 spring:
   profiles:
     active: "@env@"
+    ## 允许覆盖同名bean
+  main:
+    allow-bean-definition-overriding: true
 success:
   name: zhangsan
   age: 18
