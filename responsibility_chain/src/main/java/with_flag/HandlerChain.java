@@ -1,7 +1,7 @@
 package with_flag;
 
 /**
- * @Title：处理器链
+ * @Title：处理器链,含阻断标识
  * @Author：wangchenggong
  * @Date 2021/1/20 10:12
  * @Description

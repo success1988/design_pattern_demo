@@ -10,6 +10,7 @@
         <module>strategy</module>
         <module>template_method</module>
         <module>responsibility_chain</module>
+        <module>iterator</module>
     </modules>
     <packaging>pom</packaging>
 
