@@ -1,4 +1,4 @@
-package route_validator;
+package com.success.route_validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

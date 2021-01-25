@@ -1,4 +1,4 @@
-package route_validator;
+package com.success.route_validator;
 
 /**
  * @Title：路由校验器子接口，具体的校验器实现该接口

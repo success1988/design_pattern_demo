@@ -1,4 +1,4 @@
-package with_flag;
+package com.success.with_flag;
 
 /**
  * @Title：
@@ -7,11 +7,11 @@ package with_flag;
  * @Description
  * @Version
  */
-public class HandlerA extends Handler{
+public class HandlerB extends Handler{
 
     @Override
     public boolean doHandle() {
-        System.out.println("我的处理器A,执行处理器A的业务逻辑");
+        System.out.println("我的处理器B,执行处理器B的业务逻辑");
         return true;
     }
 }

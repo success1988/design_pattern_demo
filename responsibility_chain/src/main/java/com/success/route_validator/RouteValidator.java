@@ -1,4 +1,4 @@
-package route_validator;
+package com.success.route_validator;
 
 /**
  * @Title：路由校验器，用于校验候选通道是否符合要求

@@ -1,4 +1,4 @@
-package route_validator;
+package com.success.route_validator;
 
 /**
  * @Title：通道信息

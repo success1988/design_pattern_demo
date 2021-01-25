@@ -1,8 +1,8 @@
-package route_validator.impl;
+package com.success.route_validator.impl;
 
 import org.springframework.stereotype.Component;
-import route_validator.BaseRouteValidator;
-import route_validator.Channel;
+import com.success.route_validator.BaseRouteValidator;
+import com.success.route_validator.Channel;
 
 /**
  * @Title：银行限额校验器

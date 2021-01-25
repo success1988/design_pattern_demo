@@ -1,8 +1,8 @@
-package route_validator.impl;
+package com.success.route_validator.impl;
 
 import org.springframework.stereotype.Component;
-import route_validator.BaseRouteValidator;
-import route_validator.Channel;
+import com.success.route_validator.BaseRouteValidator;
+import com.success.route_validator.Channel;
 
 /**
  * @Title：协议号校验器，对于协议支付，必须要能查到用户的协议号
