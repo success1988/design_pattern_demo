@@ -16,11 +16,11 @@ import java.util.List;
  * @Version
  */
 @Component
-public class RouteValidatorChain implements RouteValidator{
+public class RouteValidatorChain{
 
 
     @Autowired
-    private List<BaseRouteValidator> routeValidatorList;
+    private List<PayRouteValidator> routeValidatorList;
 
 
     /**
@@ -40,10 +40,9 @@ public class RouteValidatorChain implements RouteValidator{
      * @param channel 候选通道
      * @return
      */
-    @Override
     public boolean validate(Channel channel){
         if(!CollectionUtils.isEmpty(routeValidatorList)){
-            for (BaseRouteValidator routeValidator : routeValidatorList) {
+            for (PayRouteValidator routeValidator : routeValidatorList) {
                 boolean isOK = routeValidator.validate(channel);
                 if(!isOK){
                     return false;

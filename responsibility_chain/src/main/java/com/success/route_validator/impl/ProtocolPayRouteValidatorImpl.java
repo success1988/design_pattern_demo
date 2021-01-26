@@ -1,7 +1,7 @@
 package com.success.route_validator.impl;
 
 import org.springframework.stereotype.Component;
-import com.success.route_validator.BaseRouteValidator;
+import com.success.route_validator.PayRouteValidator;
 import com.success.route_validator.Channel;
 
 /**
@@ -12,7 +12,7 @@ import com.success.route_validator.Channel;
  * @Version
  */
 @Component
-public class ProtocolPayRouteValidatorImpl implements BaseRouteValidator {
+public class ProtocolPayRouteValidatorImpl implements PayRouteValidator {
 
     @Override
     public boolean validate(Channel channel) {
