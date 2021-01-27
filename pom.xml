@@ -11,6 +11,7 @@
         <module>template_method</module>
         <module>responsibility_chain</module>
         <module>iterator</module>
+        <module>interpreter</module>
     </modules>
     <packaging>pom</packaging>
 
