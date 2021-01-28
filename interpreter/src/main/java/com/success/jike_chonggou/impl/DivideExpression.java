@@ -11,10 +11,10 @@ import com.success.jike_chonggou.IExpression;
  */
 public class DivideExpression implements IExpression {
 
-    private NumberExpression number1;
-    private NumberExpression number2;
+    private IExpression number1;
+    private IExpression number2;
 
-    public DivideExpression(NumberExpression number1, NumberExpression number2){
+    public DivideExpression(IExpression number1, IExpression number2){
         this.number1 = number1;
         this.number2 = number2;
     }

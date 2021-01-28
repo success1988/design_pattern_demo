@@ -13,14 +13,14 @@ public class ComputeExpression implements IExpression {
 
     private IExpression computeExpression;
 
-    public ComputeExpression(NumberExpression number1, NumberExpression number2,String computeStr){
+    public ComputeExpression(IExpression number1, IExpression number2,String computeStr){
 
         switch (computeStr){
             case "+" :
                 this.computeExpression = new AddExpression(number1,number2);
                 break;
             case "-" :
-                this.computeExpression = new SubstractExpression(number1,number2);
+                this.computeExpression = new SubtractExpression(number1,number2);
                 break;
             case "*" :
                 this.computeExpression = new MultipleExpression(number1,number2);

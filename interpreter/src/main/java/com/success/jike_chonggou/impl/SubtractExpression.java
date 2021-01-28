@@ -9,12 +9,12 @@ import com.success.jike_chonggou.IExpression;
  * @Description
  * @Version
  */
-public class SubstractExpression implements IExpression {
+public class SubtractExpression implements IExpression {
 
-    private NumberExpression number1;
-    private NumberExpression number2;
+    private IExpression number1;
+    private IExpression number2;
 
-    public SubstractExpression(NumberExpression number1, NumberExpression number2){
+    public SubtractExpression(IExpression number1, IExpression number2){
         this.number1 = number1;
         this.number2 = number2;
     }
