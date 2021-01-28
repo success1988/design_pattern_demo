@@ -13,6 +13,10 @@ public class NumberExpression implements IExpression {
 
     private long number;
 
+    public NumberExpression(long number){
+        this.number = number;
+    }
+
     public NumberExpression(String numberStr){
         //TODO: 转换异常的处理
         this.number = Long.valueOf(numberStr);

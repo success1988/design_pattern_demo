@@ -41,7 +41,7 @@ public class ExpressionInterpreterChonggou {
             IExpression number2 = numbers.pollFirst();
 
             ComputeExpression computeExpression = new ComputeExpression(number1,number2, operator);
-            numbers.addFirst(new NumberExpression(String.valueOf(computeExpression.interpret())));
+            numbers.addFirst(new NumberExpression(computeExpression.interpret()));
         }
         if(numbers.size() != 1){
             throw  new RuntimeException("Expression is invalid:"+expression);
