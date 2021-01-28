@@ -43,9 +43,6 @@ public abstract class AbstractNoticeService  implements NoticeService<NoticeResu
         if(!StringUtils.isEmpty(result)){
             try{
                 noticeResult = JSON.parseObject(result, NoticeResult.class);
-
-                //4.更新通知状态
-                this.updateNoticeStatus(noticeResult, noticeMessage);
             }catch (Exception e){
                 noticeResult = new NoticeResult("9001", "The result of notice is empty!");
             }
@@ -53,6 +50,8 @@ public abstract class AbstractNoticeService  implements NoticeService<NoticeResu
             noticeResult = new NoticeResult("9001", "The noticeUrl is empty!");
         }
 
+        //4.更新通知状态
+        this.updateNoticeStatus(noticeResult, noticeMessage);
         return  noticeResult;
     }
 
@@ -69,9 +68,4 @@ public abstract class AbstractNoticeService  implements NoticeService<NoticeResu
      * @return
      */
     protected abstract String buildNoticeContent(String uniqueNo);
-
-
-
-
-
 }

@@ -14,7 +14,7 @@ public abstract class AbstractFacadeApiService<T extends BaseRequest,R> implemen
 
 
     /**
-     *
+     * 处理业务请求
      * @param requestMessage 请求报文对象（这个请求报文对象需要在Controller中对请求json报文做初步的解析，才可以得到）
      * @return
      */
