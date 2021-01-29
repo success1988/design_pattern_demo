@@ -1,8 +1,6 @@
 package com.success.alert_rule_chonggou;
 
-import com.success.alert_rule.RuleExpression;
-import com.success.alert_rule.impl.CoreRuleExpression;
-import com.success.alert_rule_chonggou.impl.CreatorAlertExpression;
+import com.success.alert_rule_chonggou.impl.InterpreterAlertExpression;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +16,7 @@ public class TestAlertExpressionChonggou {
 
     public static void main(String[] args) {
 
-
+        //自定义告警触发条件表达式
         String coreRuleExpression = "key1 > 100 && key2 < 30 || key3 < 100 || key4 == 88";
 
         Map<String,Long> stateMap = new HashMap<>();
@@ -27,7 +25,7 @@ public class TestAlertExpressionChonggou {
         stateMap.put("key3", 200L);
         stateMap.put("key4", 66L);
 
-        AlertExpression alertExpression = new CreatorAlertExpression(coreRuleExpression);
+        AlertExpression alertExpression = new InterpreterAlertExpression(coreRuleExpression);
         boolean needAlertFlag = alertExpression.interpret(stateMap);
         System.out.println("是否需要告警:" + needAlertFlag);
 

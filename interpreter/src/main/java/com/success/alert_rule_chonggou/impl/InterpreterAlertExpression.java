@@ -5,18 +5,18 @@ import com.success.alert_rule_chonggou.AlertExpression;
 import java.util.Map;
 
 /**
- * @Title：
+ * @Title：核心解释器
  * @Author：wangchenggong
  * @Date 2021/1/29 9:14
  * @Description
  * @Version
  */
-public class CreatorAlertExpression implements AlertExpression {
+public class InterpreterAlertExpression implements AlertExpression {
 
 
     private AlertExpression orAlertExpression;
 
-    public CreatorAlertExpression(String alertExpression){
+    public InterpreterAlertExpression(String alertExpression){
         this.orAlertExpression = new OrAlertExpression(alertExpression);
     }
 
