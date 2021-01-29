@@ -18,7 +18,7 @@ public class GreaterAlertExpression implements AlertExpression {
 
 
     public GreaterAlertExpression(String greaterExpression){
-        String[] arr = greaterExpression.split("\\s+");
+        String[] arr = greaterExpression.trim().split("\\s+");
         this.key = arr[0];
         this.limitValue = Long.valueOf(arr[2]);
     }

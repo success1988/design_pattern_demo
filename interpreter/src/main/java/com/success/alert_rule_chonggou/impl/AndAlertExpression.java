@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Title：
+ * @Title：与运算
  * @Author：wangchenggong
  * @Date 2021/1/28 22:44
  * @Description
@@ -18,13 +18,34 @@ public class AndAlertExpression implements AlertExpression {
     private List<AlertExpression> alertExpressionList = new ArrayList<>();
 
     public AndAlertExpression(String andExpression){
-        String[] split = andExpression.split("&&");
+        String[] arr = andExpression.split("&&");
+        AlertExpression alertExpression = null;
 
+        for (int i = 0; i < arr.length; i++) {
+            String compareExpression = arr[i];
+            String[] elements = compareExpression.trim().split("\\s+");
+            String compareOperation = elements[1];
 
+            if(compareOperation.equals(">")){
+                alertExpression = new GreaterAlertExpression(compareExpression);
+            }else if(compareOperation.equals("<")){
+                alertExpression = new LessAlertExpression(compareExpression);
+            }else if(compareOperation.equals("==")){
+                alertExpression = new EqualAlertExpression(compareExpression);
+            }else {
+                throw  new RuntimeException("表达式不合法:"+andExpression);
+            }
+            alertExpressionList.add(alertExpression);
+        }
     }
 
     @Override
     public boolean interpret(Map<String, Long> stateMap) {
-        return false;
+        for (AlertExpression alertExpression: alertExpressionList) {
+            if(!alertExpression.interpret(stateMap)){
+                return false;
+            }
+        }
+        return true;
     }
 }

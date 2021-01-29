@@ -18,7 +18,7 @@ public class EqualAlertExpression implements AlertExpression {
 
 
     public EqualAlertExpression(String greaterExpression){
-        String[] arr = greaterExpression.split("\\s+");
+        String[] arr = greaterExpression.trim().split("\\s+");
         this.key = arr[0];
         this.limitValue = Long.valueOf(arr[2]);
     }
