@@ -1,5 +1,6 @@
 package com.success.alert_rule_chonggou;
 
+import com.alibaba.fastjson.JSON;
 import com.success.alert_rule_chonggou.impl.InterpreterAlertExpression;
 
 import java.util.HashMap;
@@ -28,6 +29,7 @@ public class TestAlertExpressionChonggou {
         stateMap.put("key6", 100L);
 
         AlertExpression alertExpression = new InterpreterAlertExpression(coreRuleExpression);
+        System.out.println(JSON.toJSONString(alertExpression));
         boolean needAlertFlag = alertExpression.interpret(stateMap);
         System.out.println("是否需要告警:" + needAlertFlag);
 
