@@ -1,6 +1,7 @@
 package com.success.alert_rule_chonggou.impl;
 
 import com.success.alert_rule_chonggou.AlertExpression;
+import com.success.alert_rule_chonggou.AlertExpressionUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,26 +18,57 @@ public class AndAlertExpression implements AlertExpression {
 
     private List<AlertExpression> alertExpressionList = new ArrayList<>();
 
-    public AndAlertExpression(String andExpression){
-        String[] arr = andExpression.split("&&");
-        AlertExpression alertExpression = null;
+    public AndAlertExpression(String expressionStr){
 
-        for (int i = 0; i < arr.length; i++) {
-            String compareExpression = arr[i];
-            String[] elements = compareExpression.trim().split("\\s+");
-            String compareOperation = elements[1];
+        if(AlertExpressionUtil.isKuoHaoExpression(expressionStr)){
+            alertExpressionList.add(new KuoHaoAlertExpression(expressionStr));
+        }else if(!expressionStr.contains("(")){
+            String[] arr = expressionStr.split("&&");
+            AlertExpression alertExpression = null;
 
-            if(compareOperation.equals(">")){
-                alertExpression = new GreaterAlertExpression(compareExpression);
-            }else if(compareOperation.equals("<")){
-                alertExpression = new LessAlertExpression(compareExpression);
-            }else if(compareOperation.equals("==")){
-                alertExpression = new EqualAlertExpression(compareExpression);
-            }else {
-                throw  new RuntimeException("表达式不合法:"+andExpression);
+            for (int i = 0; i < arr.length; i++) {
+                String compareExpression = arr[i];
+                String[] elements = compareExpression.trim().split("\\s+");
+                String compareOperation = elements[1];
+
+                if(compareOperation.equals(">")){
+                    alertExpression = new GreaterAlertExpression(compareExpression);
+                }else if(compareOperation.equals("<")){
+                    alertExpression = new LessAlertExpression(compareExpression);
+                }else if(compareOperation.equals("==")){
+                    alertExpression = new EqualAlertExpression(compareExpression);
+                }else {
+                    throw  new RuntimeException("表达式不合法:"+expressionStr);
+                }
+                alertExpressionList.add(alertExpression);
             }
-            alertExpressionList.add(alertExpression);
+        }else{
+            //含有 ()
+            String[] expressionArr = AlertExpressionUtil.splitByOuterOperator(expressionStr.trim(), "&&");
+            AlertExpression alertExpression = null;
+            for (int i = 0; i < expressionArr.length; i++) {
+                String currentExpressionStr = expressionArr[i].trim();
+                if(AlertExpressionUtil.isKuoHaoExpression(currentExpressionStr)){
+                    alertExpressionList.add(new KuoHaoAlertExpression(currentExpressionStr));
+                }else{
+                    String[] elements = currentExpressionStr.trim().split("\\s+");
+                    String compareOperation = elements[1];
+
+                    if(compareOperation.equals(">")){
+                        alertExpression = new GreaterAlertExpression(currentExpressionStr);
+                    }else if(compareOperation.equals("<")){
+                        alertExpression = new LessAlertExpression(currentExpressionStr);
+                    }else if(compareOperation.equals("==")){
+                        alertExpression = new EqualAlertExpression(currentExpressionStr);
+                    }else {
+                        throw  new RuntimeException("表达式不合法:"+expressionStr);
+                    }
+                    alertExpressionList.add(alertExpression);
+                }
+            }
+
         }
+
     }
 
     @Override

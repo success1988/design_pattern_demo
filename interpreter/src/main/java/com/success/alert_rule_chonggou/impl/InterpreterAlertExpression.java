@@ -1,6 +1,7 @@
 package com.success.alert_rule_chonggou.impl;
 
 import com.success.alert_rule_chonggou.AlertExpression;
+import com.success.alert_rule_chonggou.AlertExpressionUtil;
 
 import java.util.Map;
 
@@ -14,16 +15,15 @@ import java.util.Map;
 public class InterpreterAlertExpression implements AlertExpression {
 
 
-    private AlertExpression orAlertExpression;
+    private AlertExpression alertExpression;
 
-    public InterpreterAlertExpression(String alertExpression){
-        this.orAlertExpression = new OrAlertExpression(alertExpression);
+    public InterpreterAlertExpression(String alertExpressionStr){
+        this.alertExpression = new OrAlertExpression(alertExpressionStr);
     }
 
 
     @Override
     public boolean interpret(Map<String, Long> stateMap) {
-
-        return orAlertExpression.interpret(stateMap);
+        return alertExpression.interpret(stateMap);
     }
 }
