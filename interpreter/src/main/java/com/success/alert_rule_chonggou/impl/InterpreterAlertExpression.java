@@ -2,6 +2,7 @@ package com.success.alert_rule_chonggou.impl;
 
 import com.success.alert_rule_chonggou.AlertExpression;
 import com.success.alert_rule_chonggou.AlertExpressionUtil;
+import lombok.Data;
 
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import java.util.Map;
  * @Description
  * @Version
  */
+@Data
 public class InterpreterAlertExpression implements AlertExpression {
 
 

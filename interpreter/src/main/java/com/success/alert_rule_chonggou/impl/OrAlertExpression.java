@@ -2,6 +2,7 @@ package com.success.alert_rule_chonggou.impl;
 
 import com.success.alert_rule_chonggou.AlertExpression;
 import com.success.alert_rule_chonggou.AlertExpressionUtil;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Map;
  * @Description
  * @Version
  */
+@Data
 public class OrAlertExpression implements AlertExpression {
 
     private List<AlertExpression> alertExpressionList = new ArrayList<>();
@@ -21,34 +23,7 @@ public class OrAlertExpression implements AlertExpression {
     public OrAlertExpression(String alertExpressionStr){
         if(AlertExpressionUtil.isKuoHaoExpression(alertExpressionStr)){
             alertExpressionList.add(new KuoHaoAlertExpression(alertExpressionStr));
-        }else if(!alertExpressionStr.contains("(")){
-
-            String[] arr = alertExpressionStr.split("\\|\\|");
-            AlertExpression alertExpression = null;
-
-            for (int i = 0; i < arr.length; i++) {
-                String compareExpression = arr[i];
-                if(compareExpression.contains("&&")){
-                    alertExpressionList.add(new AndAlertExpression(compareExpression));
-                }else{
-                    String[] elements = compareExpression.trim().split("\\s+");
-                    String compareOperation = elements[1];
-
-                    if(compareOperation.equals(">")){
-                        alertExpression = new GreaterAlertExpression(compareExpression);
-                    }else if(compareOperation.equals("<")){
-                        alertExpression = new LessAlertExpression(compareExpression);
-                    }else if(compareOperation.equals("==")){
-                        alertExpression = new EqualAlertExpression(compareExpression);
-                    }else {
-                        throw  new RuntimeException("表达式不合法:"+alertExpressionStr);
-                    }
-                }
-                alertExpressionList.add(alertExpression);
-            }
         }else{
-
-            //含有 ()
             String[] expressionArr = AlertExpressionUtil.splitByOuterOperator(alertExpressionStr.trim(), "||");
             for (int i = 0; i < expressionArr.length; i++) {
                 String currentExpressionStr = expressionArr[i].trim();
@@ -59,7 +34,6 @@ public class OrAlertExpression implements AlertExpression {
                     alertExpressionList.add(new AndAlertExpression(currentExpressionStr));
                 }
             }
-
         }
 
     }
