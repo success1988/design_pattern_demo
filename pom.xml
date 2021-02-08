@@ -12,6 +12,7 @@
         <module>responsibility_chain</module>
         <module>iterator</module>
         <module>interpreter</module>
+        <module>mybatis_pattern_study</module>
     </modules>
     <packaging>pom</packaging>
 
