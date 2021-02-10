@@ -17,4 +17,8 @@ public class UserService {
     public List<User> selectList(User user){
         return userMapper.selectList(user);
     }
+
+    public List<User> selectListByIds(String ids){
+        return userMapper.selectListByIds(ids);
+    }
 }

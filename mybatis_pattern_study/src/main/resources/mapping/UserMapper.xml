@@ -20,6 +20,12 @@
         from t_user
         <include refid="queryConditions" />
     </select>
+    <select id="selectListByIds" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_user
+        where id in (${userIds})
+    </select>
 
 
     <sql id="queryConditions">

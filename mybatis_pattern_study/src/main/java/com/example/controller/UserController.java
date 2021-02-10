@@ -21,4 +21,12 @@ public class UserController {
         userParam.setRealName("张三");
         return userService.selectList(userParam);
     }
+
+    @RequestMapping("/ids")
+    public List<User> queryUsersByIds(){
+        //${}的用例
+        String ids = "1,2,3";
+        return userService.selectListByIds(ids);
+    }
+
 }
