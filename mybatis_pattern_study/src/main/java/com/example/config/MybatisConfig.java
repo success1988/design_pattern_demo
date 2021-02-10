@@ -1,5 +1,6 @@
 package com.example.config;
 
+import com.example.plugin.MySqlPagingPlugin;
 import com.example.plugin.MybatisSqlPrintPlugin;
 import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,11 @@ public class MybatisConfig {
     public MybatisSqlPrintPlugin mybatisSqlPrintPlugin(){
         return new MybatisSqlPrintPlugin();
     }
+    @Bean
+    public MySqlPagingPlugin mySqlPagingPlugin(){
+        return new MySqlPagingPlugin();
+    }
+
 
     @Bean
     public ConfigurationCustomizer configurationCustomizer(){
@@ -27,6 +33,7 @@ public class MybatisConfig {
             public void customize(org.apache.ibatis.session.Configuration configuration) {
                 //注册MyBatis的插件
                 configuration.addInterceptor(mybatisSqlPrintPlugin());
+                configuration.addInterceptor(mySqlPagingPlugin());
             }
         };
     }

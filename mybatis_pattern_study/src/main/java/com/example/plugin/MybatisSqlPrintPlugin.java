@@ -4,11 +4,13 @@ import org.apache.commons.lang3.time.FastDateFormat;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.CachingExecutor;
 import org.apache.ibatis.executor.Executor;
-import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.ParameterMapping;
-import org.apache.ibatis.plugin.*;
+import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.plugin.Intercepts;
+import org.apache.ibatis.plugin.Invocation;
+import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
@@ -17,7 +19,6 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Statement;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -125,6 +126,13 @@ public class MybatisSqlPrintPlugin implements Interceptor {
         return value;
     }
 
+    /**
+     * 用boundSql.getParameterMappings()中的实参来替换boundSql.getSql()中的？
+     *
+     * @param configuration
+     * @param boundSql
+     * @return
+     */
     public static String showSql(Configuration configuration, BoundSql boundSql) {
 
         Object parameterObject = boundSql.getParameterObject();
