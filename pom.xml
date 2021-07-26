@@ -13,6 +13,7 @@
         <module>iterator</module>
         <module>interpreter</module>
         <module>mybatis_pattern_study</module>
+        <module>concurrent_pattern</module>
     </modules>
     <packaging>pom</packaging>
 

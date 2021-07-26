@@ -31,7 +31,7 @@ public class MybatisConfig {
         return new ConfigurationCustomizer() {
             @Override
             public void customize(org.apache.ibatis.session.Configuration configuration) {
-                //注册MyBatis的插件
+                //注册MyBatis的插件(先注册的插件逻辑会后执行）
                 configuration.addInterceptor(mybatisSqlPrintPlugin());
                 configuration.addInterceptor(mySqlPagingPlugin());
             }
